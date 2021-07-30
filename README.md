@@ -1,6 +1,6 @@
 # Friday Night Funkin Fixed Engine
 
-This is the repository for Friday Night Funkin, a game originally made for Ludum Dare 47 "Stuck In a Loop".
+This is the repository for an engine for Friday Night Funkin, a game originally made for Ludum Dare 47 "Stuck In a Loop".
 
 Play the Original Ludum Dare prototype here: https://ninja-muffin24.itch.io/friday-night-funkin
 Play the Original Newgrounds one here: https://www.newgrounds.com/portal/view/770371
