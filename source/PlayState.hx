@@ -816,6 +816,8 @@ class PlayState extends MusicBeatState
 					schoolIntro(doof);
 				case 'thorns':
 					schoolIntro(doof);
+				case 'intro-anim-test':
+					schoolIntro(doof);
 				default:
 					startCountdown();
 			}
@@ -901,6 +903,21 @@ class PlayState extends MusicBeatState
 									FlxG.camera.fade(FlxColor.WHITE, 1.6, false);
 								});
 							}
+						});
+					}
+					else if (SONG.song.toLowerCase() == "intro-anim-test")
+					{
+						var BEEPBITCH:FlxSound = new FlxSound().loadEmbedded(Paths.sound('BEEP_BEEP_BITCH', 'shared'));
+						remove(dad);
+						new FlxTimer().start(2, function(tmr:FlxTimer)
+						{
+							BEEPBITCH.play();
+							boyfriend.playAnim('singUP', true);
+							new FlxTimer().start(3, function(tmr:FlxTimer)
+							{
+								add(dad);
+								startCountdown();
+							});
 						});
 					}
 					else
@@ -1349,6 +1366,7 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
+		
 		#if !debug
 		perfectMode = false;
 		#end
@@ -2248,6 +2266,10 @@ class PlayState extends MusicBeatState
 			{
 				popUpScore(note.strumTime);
 				combo += 1;
+				if (CoolGameDataStuff.hitsound)
+				{
+					FlxG.sound.play(Paths.sound('HIT', 'shared'));
+				}
 			}
 
 			if (note.noteData >= 0)

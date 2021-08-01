@@ -18,7 +18,7 @@ class OptionsMenu extends MusicBeatState
 	var selector:FlxText;
 	var curSelected:Int = 0;
 
-	var controlsStrings:Array<String> = ["Dfjk keys", "Ghost Tapping", "Advanced Score Text"];
+	var controlsStrings:Array<String> = ["Dfjk keys", "Ghost Tapping", "Advanced Score Text", "Hit Sounds"];
 
 	private var grpControls:FlxTypedGroup<Alphabet>;
 
@@ -113,6 +113,15 @@ class OptionsMenu extends MusicBeatState
 				FlxG.save.data.advancedscore = CoolGameDataStuff.advancedscore;
 				FlxG.save.flush();
 			}
+			if (curSelected == 3)
+			{
+				if (CoolGameDataStuff.hitsound)
+					CoolGameDataStuff.hitsound = false;
+				else
+					CoolGameDataStuff.hitsound = true;
+				FlxG.save.data.hitsound = CoolGameDataStuff.hitsound;
+				FlxG.save.flush();
+			}
 		}
 		if (curSelected == 0)
 		{
@@ -125,6 +134,10 @@ class OptionsMenu extends MusicBeatState
 		if (curSelected == 2)
 		{
 			cooloptiontext.text = "Advanced Score Text (shows misses and hits): " + CoolGameDataStuff.advancedscore;
+		}
+		if (curSelected == 3)
+		{
+			cooloptiontext.text = "Hit Sounds (plays a sound when you hit a note): " + CoolGameDataStuff.hitsound;
 		}
 	}
 

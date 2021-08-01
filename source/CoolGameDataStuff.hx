@@ -5,9 +5,11 @@ import flixel.FlxG;
 
 class CoolGameDataStuff extends FlxState
 {
+    //COOL GAME DATA SETTINGS POG
     static public var dfjk:Bool = false;
 	static public var ghost:Bool = false;
 	static public var advancedscore:Bool = false;
+    static public var hitsound:Bool = false;
 	static public var middlescroll:Bool = false; //the thing im not adding soon lmaooooo
     override public function create():Void
     {
