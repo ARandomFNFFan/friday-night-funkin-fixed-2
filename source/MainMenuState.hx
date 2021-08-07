@@ -113,6 +113,15 @@ class MainMenuState extends MusicBeatState
 		cooldesctext.scrollFactor.set();
 		cooldesctext.setFormat("VCR OSD Mono", 24, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(cooldesctext);
+		if (FlxG.save.data.dfjk != null)
+			CoolGameDataStuff.dfjk = FlxG.save.data.dfjk;
+			controls.setKeyboardScheme(KeyboardScheme.Duo(true), true);
+		if (FlxG.save.data.ghost != null)
+			CoolGameDataStuff.ghost = FlxG.save.data.ghost;
+		if (FlxG.save.data.advancedscore != null)
+			CoolGameDataStuff.advancedscore = FlxG.save.data.advancedscore;
+		if (FlxG.save.data.hitsound != null)
+			CoolGameDataStuff.hitsound = FlxG.save.data.hitsound;
 		super.create();
 	}
 
