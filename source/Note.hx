@@ -42,7 +42,17 @@ class Note extends FlxSprite
 		this.prevNote = prevNote;
 		isSustainNote = sustainNote;
 
-		x += 50;
+		if (CoolGameDataStuff.middlescroll)
+		{
+			x += 50;
+			x -= 275;
+		}
+		else
+		{
+			x += 50;
+		}
+
+		
 		// MAKE SURE ITS DEFINITELY OFF SCREEN?
 		y -= 2000;
 		this.strumTime = strumTime;

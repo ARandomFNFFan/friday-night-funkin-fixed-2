@@ -365,13 +365,13 @@ class TitleState extends MusicBeatState
 		switch (curBeat) //god why dont engines clean this shit
 		{
 			case 1:
-				createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
+				createCoolText([CoolGameDataStuff.devs[0], CoolGameDataStuff.devs[1], CoolGameDataStuff.devs[2], CoolGameDataStuff.devs[3]]);
 			case 3:
 				addMoreText('present');
 			case 4:
 				deleteCoolText();
 			case 5:
-				createCoolText(['Fixed Engine', 'By']);
+				createCoolText(['Fixed Engine', 'By']); //dont remove pls :(
 			case 7:
 				addMoreText('Bam');
 			case 8:
@@ -383,11 +383,11 @@ class TitleState extends MusicBeatState
 			case 12:
 				deleteCoolText();
 			case 13:
-				addMoreText('Friday');
+				createCoolText([CoolGameDataStuff.gameName[0]]);
 			case 14:
-				addMoreText('Night');
+				addMoreText(CoolGameDataStuff.gameName[1]);
 			case 15:
-				addMoreText('Funkin');
+				addMoreText(CoolGameDataStuff.gameName[2]);
 			case 16:
 				skipIntro();
 		}

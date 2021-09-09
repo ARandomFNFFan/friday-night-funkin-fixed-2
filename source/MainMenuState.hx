@@ -97,7 +97,7 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollow, null, 0.06);
 
-		var versionShit:FlxText = new FlxText(5, FlxG.height - 18, 0, "v" + Application.current.meta.get('version'), 12);
+		var versionShit:FlxText = new FlxText(5, FlxG.height - 18, 0, "v" + Application.current.meta.get('version') + " Fixed Engine Version: 2.0", 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
@@ -113,15 +113,7 @@ class MainMenuState extends MusicBeatState
 		cooldesctext.scrollFactor.set();
 		cooldesctext.setFormat("VCR OSD Mono", 24, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(cooldesctext);
-		if (FlxG.save.data.dfjk != null)
-			CoolGameDataStuff.dfjk = FlxG.save.data.dfjk;
-			controls.setKeyboardScheme(KeyboardScheme.Duo(true), true);
-		if (FlxG.save.data.ghost != null)
-			CoolGameDataStuff.ghost = FlxG.save.data.ghost;
-		if (FlxG.save.data.advancedscore != null)
-			CoolGameDataStuff.advancedscore = FlxG.save.data.advancedscore;
-		if (FlxG.save.data.hitsound != null)
-			CoolGameDataStuff.hitsound = FlxG.save.data.hitsound;
+		CheckSettings();
 		super.create();
 	}
 
@@ -234,6 +226,22 @@ class MainMenuState extends MusicBeatState
 		});
 	}
 
+	function CheckSettings():Void
+	{
+		if (FlxG.save.data.dfjk != null)
+			CoolGameDataStuff.dfjk = FlxG.save.data.dfjk;
+			controls.setKeyboardScheme(KeyboardScheme.Duo(true), true);
+		if (FlxG.save.data.ghost != null)
+			CoolGameDataStuff.ghost = FlxG.save.data.ghost;
+		if (FlxG.save.data.advancedscore != null)
+			CoolGameDataStuff.advancedscore = FlxG.save.data.advancedscore;
+		if (FlxG.save.data.hitsound != null)
+			CoolGameDataStuff.hitsound = FlxG.save.data.hitsound;
+		if (FlxG.save.data.chadui != null)
+			CoolGameDataStuff.chadui = FlxG.save.data.chadui;
+		if (FlxG.save.data.middlescroll != null)
+			CoolGameDataStuff.middlescroll = FlxG.save.data.middlescroll;
+	}
 	function changeItem(huh:Int = 0)
 	{
 		curSelected += huh;

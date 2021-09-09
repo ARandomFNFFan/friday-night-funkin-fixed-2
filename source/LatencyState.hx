@@ -57,7 +57,7 @@ class LatencyState extends FlxState
 		{
 			FlxG.sound.music.stop();
 
-			FlxG.resetState();
+			LoadingState.loadAndSwitchState(new OptionsMenu());
 		}
 
 		noteGrp.forEach(function(daNote:Note)

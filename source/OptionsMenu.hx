@@ -18,7 +18,7 @@ class OptionsMenu extends MusicBeatState
 	var selector:FlxText;
 	var curSelected:Int = 0;
 
-	var controlsStrings:Array<String> = ["Dfjk keys", "Ghost Tapping", "Advanced Score Text", "Hit Sounds"];
+	var controlsStrings:Array<String> = ["Dfjk keys", "Ghost Tapping", "Advanced Score Text", "Hit Sounds", "New UI", "Latency Test", "middle scroll"];
 
 	private var grpControls:FlxTypedGroup<Alphabet>;
 
@@ -27,7 +27,6 @@ class OptionsMenu extends MusicBeatState
 	override function create()
 	{
 		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		//controlsStrings = CoolUtil.coolTextFile(Paths.txt('controls'));
 		menuBG.color = 0xFFea71fd;
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
 		menuBG.updateHitbox();
@@ -46,13 +45,6 @@ class OptionsMenu extends MusicBeatState
 				grpControls.add(controlLabel);
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
 		}
-
-		if (FlxG.save.data.dfjk != null)
-			CoolGameDataStuff.dfjk = FlxG.save.data.dfjk;
-		if (FlxG.save.data.ghost != null)
-			CoolGameDataStuff.ghost = FlxG.save.data.ghost;
-		if (FlxG.save.data.advancedscore != null)
-			CoolGameDataStuff.advancedscore = FlxG.save.data.advancedscore;
 
 		cooloptiontext = new FlxText(5, FlxG.height - 148, 0, "Placetheholderhere", 12);
 		cooloptiontext.scrollFactor.set();
@@ -122,6 +114,28 @@ class OptionsMenu extends MusicBeatState
 				FlxG.save.data.hitsound = CoolGameDataStuff.hitsound;
 				FlxG.save.flush();
 			}
+			if (curSelected == 4)
+			{
+				if (CoolGameDataStuff.chadui)
+					CoolGameDataStuff.chadui = false;
+				else
+					CoolGameDataStuff.chadui = true;
+				FlxG.save.data.chadui = CoolGameDataStuff.chadui;
+				FlxG.save.flush();
+			}
+			if (curSelected == 5)
+			{
+				FlxG.switchState(new LatencyState());
+			}
+			if (curSelected == 6)
+			{
+				if (CoolGameDataStuff.middlescroll)
+					CoolGameDataStuff.middlescroll = false;
+				else
+					CoolGameDataStuff.middlescroll = true;
+				FlxG.save.data.middlescroll = CoolGameDataStuff.middlescroll;
+				FlxG.save.flush();
+			}
 		}
 		if (curSelected == 0)
 		{
@@ -138,6 +152,18 @@ class OptionsMenu extends MusicBeatState
 		if (curSelected == 3)
 		{
 			cooloptiontext.text = "Hit Sounds (plays a sound when you hit a note): " + CoolGameDataStuff.hitsound;
+		}
+		if (curSelected == 4)
+		{
+			cooloptiontext.text = "New UI (Makes ratings, icons and other stuff better): " + CoolGameDataStuff.chadui;
+		}
+		if (curSelected == 5)
+		{
+			cooloptiontext.text = "Latency Testing";
+		}
+		if (curSelected == 6)
+		{
+			cooloptiontext.text = "Middle Scroll, puts your notes in the middle and disables dads notes: " + CoolGameDataStuff.middlescroll;
 		}
 	}
 
